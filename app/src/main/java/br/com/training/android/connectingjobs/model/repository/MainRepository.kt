@@ -1,13 +1,15 @@
 package br.com.training.android.connectingjobs.model.repository
 
-import android.content.Context
+interface MainRepository<in I, out O> {
 
-interface MainRepository<T> {
+    fun getEntityFromDatabase(key: Long): O
 
-    fun getEntityFromDatabase(context: Context): T
+    fun getEntitiesFromDatabase(): List<O>
 
-    fun getEntitiesFromDatabase(context: Context): List<T>
+    fun insertEntityIntoDatabase(entity: I)
 
-    fun insertEntityIntoDatabase(entity: T)
+    fun updateEntity(entity: I)
+
+    fun deleteEntity(entity: I)
 
 }

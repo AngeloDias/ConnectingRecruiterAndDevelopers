@@ -7,7 +7,7 @@ class DeveloperDataMapper: Mapper<DeveloperEntity, Developer> {
 
     override fun map(input: DeveloperEntity): Developer {
         return Developer(
-            id = input.id,
+            id = input.developerId,
             name = input.name,
             email = input.email,
             linkedInAddress = input.linkedInAddress,

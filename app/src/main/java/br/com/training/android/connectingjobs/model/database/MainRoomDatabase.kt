@@ -6,14 +6,15 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 
 @Database(entities = [RecruiterEntity::class, DeveloperEntity::class], version = 1)
-abstract class RecruiterDatabase: RoomDatabase() {
-    abstract val databaseRecruiterDao: RecruiterDatabaseDao
+abstract class MainRoomDatabase: RoomDatabase() {
+    abstract val recruiterDatabaseDao: RecruiterDatabaseDao
+    abstract val developerDatabaseDao: DeveloperDatabaseDao
 
     companion object{
         @Volatile
-        private var INSTANCE: RecruiterDatabase? = null
+        private var INSTANCE: MainRoomDatabase? = null
 
-        fun getInstance(context: Context): RecruiterDatabase {
+        fun getInstance(context: Context): MainRoomDatabase {
 
             synchronized(this) {
                 var instance = INSTANCE
@@ -21,8 +22,8 @@ abstract class RecruiterDatabase: RoomDatabase() {
                 if(instance == null) {
                     instance = Room.databaseBuilder(
                         context.applicationContext,
-                        RecruiterDatabase::class.java,
-                        "recruiter_history_database"
+                        MainRoomDatabase::class.java,
+                        "main_history_database"
                     ).fallbackToDestructiveMigration().build()
                     INSTANCE = instance
                 }
