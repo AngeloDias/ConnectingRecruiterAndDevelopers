@@ -29,11 +29,11 @@ class RecruiterRepositoryImpl(
     }
 
     override fun updateEntity(entity: RecruiterEntity) {
-        TODO("Not yet implemented")
+        recruiterDatabaseDao.update(entity)
     }
 
     override fun deleteEntity(entity: RecruiterEntity) {
-        TODO("Not yet implemented")
+        recruiterDatabaseDao.delete(entity)
     }
 
 }

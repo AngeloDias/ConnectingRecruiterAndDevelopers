@@ -15,23 +15,23 @@ class DeveloperRepositoryImpl(
     private val developerDatabaseDao = MainRoomDatabase.getInstance(context).developerDatabaseDao
 
     override fun getEntityFromDatabase(key: Long): Developer {
-        TODO("Not yet implemented")
+        return singleDeveloperMapper.map(developerDatabaseDao.get(key))
     }
 
     override fun getEntitiesFromDatabase(): List<Developer> {
-        TODO("Not yet implemented")
+        return listDeveloperMapper.map(developerDatabaseDao.getAll())
     }
 
     override fun insertEntityIntoDatabase(entity: DeveloperEntity) {
-        TODO("Not yet implemented")
+        developerDatabaseDao.insertAll(entity)
     }
 
     override fun updateEntity(entity: DeveloperEntity) {
-        TODO("Not yet implemented")
+        developerDatabaseDao.update(entity)
     }
 
     override fun deleteEntity(entity: DeveloperEntity) {
-        TODO("Not yet implemented")
+        developerDatabaseDao.delete(entity)
     }
 
 }
