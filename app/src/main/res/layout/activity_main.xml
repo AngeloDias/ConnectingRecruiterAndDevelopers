@@ -21,7 +21,7 @@
         app:layout_constraintVertical_bias="0.169" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/chooseProfileTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/profile_choosing_title"
@@ -33,28 +33,39 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/personImageView" />
 
-    <TextView
-        android:id="@+id/recruiterProfile"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/textViewContainer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/recruiter_profile_text"
-        android:textColor="@color/orangeCallToAction"
-        android:textSize="@dimen/specific_profile_dimen"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/developerProfile"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <TextView
-        android:id="@+id/developerProfile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/developer_profile_text"
-        android:textColor="@color/orangeCallToAction"
-        android:textSize="@dimen/specific_profile_dimen"
+        android:layout_marginEnd="448dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chooseProfileTextView">
+
+        <TextView
+            android:id="@+id/recruiterProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/recruiter_profile_text"
+            android:textColor="@color/orangeCallToAction"
+            android:textSize="@dimen/specific_profile_dimen"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/developerProfile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/developer_profile_text"
+            android:textColor="@color/orangeCallToAction"
+            android:textSize="@dimen/specific_profile_dimen"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/recruiterProfile"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
